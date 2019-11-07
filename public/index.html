@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cache application</title>
+</head>
+<body>
+	
+	<div id="app">
+		<div v-for="item in list">
+			<b>{{ item.title }}</b> — {{ item.content }} <button @click="save" v-bind:data-id="item.id">Save</button>
+		</div>
+	</div>
+	
+	<script src="js/vue.min.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('sw.js');
+			});
+		}	
+	</script>
+	<script src="js/core.js"></script>
+</body>
+</html>
